@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bài tập js</title>
+	<style type="text/css">
+		*{
+			font-size: 20px;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<form name="myform">
+		<span>Class name:</span>
+		<select id="className" name="className">
+			<option value="0">Select class name</option>
+			<option value="1">.net</option>
+			<option value="1">angular</option>
+			<option value="2">java</option>
+			<option value="3">test</option>
+		</select>
+	
+		<span>Student name:</span>
+		<select id="studentName" name="studentName">
+			<option>Select student name</option>
+			<option>tran van a</option>
+			<option>tran van b</option>
+			<option>tran van c</option>
+			<option>tran van d</option>
+			<option>tran van e</option>
+			<option>tran van f</option>
+			<option>tran van g</option>
+			<option>tran van h</option>
+			<option>tran van i</option>
+			<option>tran van j</option>
+		</select>
+	</form>
+</body>
+
+<script type="text/javascript">
+	var students = [
+		{id: 1, name: 'tran van a', className: '.net'},
+		{id: 2, name: 'tran van b', className: '.net'},
+		{id: 3, name: 'tran van c', className: 'angular'},
+		{id: 4, name: 'tran van d', className: 'angular'},
+		{id: 5, name: 'tran van e', className: 'java'},
+		{id: 6, name: 'tran van f', className: 'java'},
+		{id: 7, name: 'tran van g', className: 'java'},
+		{id: 8, name: 'tran van h', className: 'test'},
+		{id: 9, name: 'tran van i', className: 'test'},
+		{id: 10, name: 'tran van j', className: 'test'}
+	]
+
+	document.getElementById("className").addEventListener("change", optionChange);
+
+	function optionChange(){
+		var className = document.getElementById("className");
+		var studentName = document.getElementById("studentName");
+		var valueOfE = className.options[className.selectedIndex];
+		var option = document.myform.studentName.options;	
+		if(valueOfE.value != 0){
+			for (i = studentName.length-1; i >= 0; i--) {
+		  		studentName.removeChild( studentName.options[i] ); 
+			}
+		}
+
+		if(valueOfE.value === "0"){
+			location.reload();
+		}
+
+		for (var i = 0; i < students.length; i++) {
+			if(students[i].className === valueOfE.text){
+				var opt = document.createElement('option');
+				opt.appendChild( document.createTextNode(students[i].name)) ;
+				studentName.appendChild(opt); 
+			}
+		}
+	}
+
+</script>
+</html>

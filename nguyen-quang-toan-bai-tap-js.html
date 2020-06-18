@@ -22,17 +22,7 @@
 	
 		<span>Student name:</span>
 		<select id="studentName" name="studentName">
-			<option>Select student name</option>
-			<option>tran van a</option>
-			<option>tran van b</option>
-			<option>tran van c</option>
-			<option>tran van d</option>
-			<option>tran van e</option>
-			<option>tran van f</option>
-			<option>tran van g</option>
-			<option>tran van h</option>
-			<option>tran van i</option>
-			<option>tran van j</option>
+
 		</select>
 	</form>
 </body>
@@ -59,13 +49,19 @@
 		var valueOfE = className.options[className.selectedIndex];
 		var option = document.myform.studentName.options;	
 		if(valueOfE.value != 0){
-			for (i = studentName.length-1; i >= 0; i--) {
-		  		studentName.removeChild( studentName.options[i] ); 
+			if(studentName.length > 0){
+				for (i = studentName.length-1; i >= 0; i--) {
+			  		studentName.removeChild( studentName.options[i] ); 
+				}
 			}
 		}
 
 		if(valueOfE.value === "0"){
-			location.reload();
+			if(studentName.length > 0){
+				for (i = studentName.length-1; i >= 0; i--) {
+			  		studentName.removeChild( studentName.options[i] ); 
+				}
+			}
 		}
 
 		for (var i = 0; i < students.length; i++) {

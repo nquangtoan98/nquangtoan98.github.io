@@ -7,6 +7,10 @@
 			font-size: 20px;
 			font-family: sans-serif;
 		}
+
+		.studentName{
+			display: none;
+		}
 	</style>
 </head>
 <body>
@@ -20,8 +24,8 @@
 			<option value="3">test</option>
 		</select>
 	
-		<span>Student name:</span>
-		<select id="studentName" name="studentName">
+		<span class="studentName" id="label">Student name:</span>
+		<select class="studentName" id="studentName" name="studentName">
 
 		</select>
 	</form>
@@ -46,20 +50,25 @@
 	function optionChange(){
 		var className = document.getElementById("className");
 		var studentName = document.getElementById("studentName");
+		var label = document.getElementById("label");
 		var valueOfE = className.options[className.selectedIndex];
 		var option = document.myform.studentName.options;	
 		if(valueOfE.value != 0){
+			studentName.classList.remove("studentName"); 
+			label.classList.remove("studentName");
 			if(studentName.length > 0){
 				for (i = studentName.length-1; i >= 0; i--) {
-			  		studentName.removeChild( studentName.options[i] ); 
+			  		studentName.removeChild( studentName.options[i] );
 				}
 			}
 		}
 
 		if(valueOfE.value === "0"){
+			studentName.className += "studentName"; 
+			label.className += "studentName";
 			if(studentName.length > 0){
 				for (i = studentName.length-1; i >= 0; i--) {
-			  		studentName.removeChild( studentName.options[i] ); 
+			  		studentName.removeChild( studentName.options[i] );			  		
 				}
 			}
 		}

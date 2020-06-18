@@ -27,12 +27,11 @@ function minimizeFunction(){
     var icon = document.getElementById("icon");
     var els = document.querySelectorAll("#lv2");
     for (var i = 0; i < els.length; i++) {
-         if (els[i].className === "list-lv2") {
-            els[i].classList += " minimize";
-            icon.classList = "fa fa-plus";
-        } else {
-            els[i].className = "list-lv2";
+        els[i].classList.toggle("minimize");    
+        if (els[i].className === "list-lv2") {
             icon.classList = "fa fa-minus";
+        } else {
+            icon.classList = "fa fa-plus";
         }  
     }
 }

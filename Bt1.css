@@ -20,7 +20,7 @@
 	float: left;
 	width: calc(100% - 410px);
 	margin: 5px;
-  min-width: 260px;
+  min-width: 130px;
 }
 
 p{
@@ -96,7 +96,7 @@ a{
 .content{
   height: 250px;
   width: 24%;
-  min-width: 200px;
+  min-width: 150px;
   max-width: 300px;
   float: left;
   margin: 20px 5px 20px 5px;
